@@ -257,7 +257,7 @@ contract FlightSuretyData {
                             payable
     {
         airlineFunding[msg.sender].add(msg.value);
-        if(airlineFunding[msg.sender] >= 10){
+        if(airlineFunding[msg.sender] >= 10 ether){
             airlines[msg.sender].state = airlineState.Paid;
             airlinesArray.push(msg.sender);
         }
@@ -274,6 +274,18 @@ contract FlightSuretyData {
                         returns(bytes32)
     {
         return keccak256(abi.encodePacked(airline, flight, timestamp));
+    }
+
+    function isAirlineFunded
+                        (
+                            address _airline
+                        )
+                        public
+                        view
+                        requireIsOperational()
+                        returns (bool)
+    {
+        return (airlines[_airline].state == airlineState.Paid);
     }
 
     /**

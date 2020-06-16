@@ -83,7 +83,6 @@ contract FlightSuretyApp {
     {
         contractOwner = msg.sender;
         dataContract = FlightSuretyData(dataContractAddress);
-        dataContract.authorizeCaller(address(this));
         registerAirline(firstAirline, "First Airline");
     }
 
