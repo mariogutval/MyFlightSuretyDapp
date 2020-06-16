@@ -39,6 +39,17 @@ To build dapp for prod:
 
 Deploy the contents of the ./dapp folder
 
+## Software versions
+
+Truffle v5.1.28 (core: 5.1.28)
+Solidity - >=0.4.24 (solc-js)
+Node v10.21.0
+npm v6.14.4
+Web3.js v1.2.1
+
+## Minor changes in node_modules
+
+SafeMath.sol has been modified in order to use the mod (modulo) function. This function has been used to know if the total number of airlines is even or odd.
 
 ## Resources
 
